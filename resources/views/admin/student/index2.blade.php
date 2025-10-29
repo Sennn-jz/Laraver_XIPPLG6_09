@@ -6,7 +6,6 @@
 <div class="container">
   <h1 class="mb-4">Data Siswa</h1>
   <a href="{{ route('admin.students.create') }}" class="btn btn-primary mb-3">+ Tambah Siswa</a>
-
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -27,7 +26,7 @@
         <td>{{ $student->jenis_kelamin }}</td>
         <td>{{ $student->nisn }}</td>
         <td>
-          <a href="{{ route('students.edit', $student->id) }}" class="btn btn-warning btn-sm">Edit</a>
+          <a href="{{ route('admin.students.edit', $student->id) }}" class="btn btn-warning btn-sm">Edit</a>
           <form action="{{ route('admin.students.destroy', $student->id) }}" method="POST" class="d-inline">
             @csrf
             @method('DELETE')

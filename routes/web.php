@@ -10,7 +10,7 @@ Route::get('/', [LandingController::class, 'index'])->name('landing');
 
 // Admin Routes
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index2'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('students', StudentController::class);
 });
