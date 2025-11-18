@@ -31,10 +31,10 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-    'nis' => 'required|unique:students,nis',
-    'nama_lengkap' => 'required',
-    'jenis_kelamin' => 'required',
-    'nisn' => 'required|unique:students,nisn',
+        'nis' => 'required|unique:students,nis',
+        'nama_lengkap' => 'required',
+        'jenis_kelamin' => 'required',
+        'nisn' => 'required|unique:students,nisn',
     ]);
 
 
