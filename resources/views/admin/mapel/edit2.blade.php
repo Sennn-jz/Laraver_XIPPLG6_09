@@ -1,9 +1,9 @@
-@extends('layouts.admin')
+@extends('layout.admin')
 @section('title', 'Edit Data Mapel')
 @section('content')
 <div class="container-fluid">
   <h2>Edit Data Mapel</h2>
-  <form action="{{ route('admin.mapels.update', $mapel->id) }}" method="POST">
+  <form action="{{ route('admin.mapel.update', $mapel->id) }}" method="POST">
     @csrf
     @method('PUT')
     <div class="form-group mb-3">
@@ -23,7 +23,7 @@
       <input type="text" name="kelas_yang_diajar" value="{{ $mapel->kelas_yang_diajar }}" class="form-control" required>
     </div>
     <button type="submit" class="btn btn-primary">Update</button>
-    <a href="{{ route('admin.mapels.index') }}" class="btn btn-secondary">Kembali</a>
+    <a href="{{ route('admin.mapel.index') }}" class="btn btn-secondary">Kembali</a>
   </form>
 </div>
 @endsection

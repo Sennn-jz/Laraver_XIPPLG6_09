@@ -21,24 +21,24 @@
     </thead>
 
     <tbody>
-      @foreach($mapels as $mapels)
+      @foreach($mapels as $mapel)
       <tr>
-        <td>{{ $mapels->id }}</td>
-        <td>{{ $mapels->kode_mapel }}</td>
-        <td>{{ $mapels->nama_mapel }}</td>
-        <td>{{ $mapels->nama_pengajar }}</td>
-        <td>{{ $mapels->kelas_yang_diajar }}</td>
-        <td>
-          <a href="{{ route('admin.mapel.show', $mapels->id) }}" class="btn btn-info btn-sm">Lihat</a>
-          <a href="{{ route('admin.mapel.edit', $mapels->id) }}" class="btn btn-warning btn-sm">Edit</a>
+          <td>{{ $mapel->id }}</td>
+          <td>{{ $mapel->kode_mapel }}</td>
+          <td>{{ $mapel->nama_mapel }}</td>
+          <td>{{ $mapel->nama_pengajar }}</td>
+          <td>{{ $mapel->kelas_yang_diajar }}</td>
+          <td>
+              <a href="{{ route('admin.mapel.show', $mapel->id) }}" class="btn btn-info btn-sm">Lihat</a>
+              <a href="{{ route('admin.mapel.edit', $mapel->id) }}" class="btn btn-warning btn-sm">Edit</a>
 
-          <form action="{{ route('admin.mapel.destroy', $mapels->id) }}" method="POST" class="d-inline"
-            onsubmit="return confirm('Apakah kamu yakin ingin menghapus data mapel ini?')">
-            @csrf
-            @method('DELETE')
-            <button class="btn btn-danger btn-sm">Hapus</button>
-          </form>
-        </td>
+              <form action="{{ route('admin.mapel.destroy', $mapel->id) }}" method="POST" class="d-inline"
+                  onsubmit="return confirm('Apakah kamu yakin ingin menghapus data mapel ini?')">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger btn-sm">Hapus</button>
+              </form>
+          </td>
       </tr>
       @endforeach
     </tbody>

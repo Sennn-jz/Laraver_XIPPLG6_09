@@ -47,7 +47,8 @@ class MapelController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $mapel = Mapel::findOrFail($id);
+        return view('admin.mapel.show2', compact('mapel'));
     }
 
     /**
@@ -55,7 +56,8 @@ class MapelController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $mapel = Mapel::findOrFail($id);
+        return view('admin.mapel.edit2', compact('mapel'));
     }
 
     /**
@@ -63,14 +65,30 @@ class MapelController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'kode_mapel' => 'required',
+            'nama_mapel' => 'required',
+            'nama_pengajar' => 'required',
+            'kelas_yang_diajar' => 'required',
+        ]);
+
+        $mapel = Mapel::findOrFail($id);
+
+        $mapel->update($validated);
+
+        return redirect()->route('admin.mapel.index')->with('success', 'Data mapel berhasil diperbarui');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $mapel = Mapel::findOrFail($id);
+        $mapel->delete();
+
+        return redirect()->route('admin.mapel.index')
+                        ->with('success', 'Data mapel berhasil dihapus');
     }
 }
